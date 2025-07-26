@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/github/license/hlsitechio/warp-ai-enhancement-suite?style=for-the-badge)](LICENSE)
 [![PowerShell](https://img.shields.io/badge/PowerShell-7.5+-5391FE?style=for-the-badge&logo=powershell)](https://github.com/PowerShell/PowerShell)
 
-> **ATTENTION ANTHROPIC & WARP TEAMS**: This is a live demonstration of what's possible when AI agents collaborate to enhance terminal experiences. Built entirely through AI-to-AI interaction between Claude and Gemini CLI, showcasing the future of agentic development environments.
+> **ATTENTION ANTHROPIC, GOOGLE GEMINI & WARP TEAMS**: This is a live demonstration of what's possible when AI agents collaborate to enhance terminal experiences. Built entirely through AI-to-AI interaction between Claude and Google Gemini CLI, showcasing the future of agentic development environments.
 
 ---
 
@@ -34,8 +34,9 @@ This project **proves a concept**: AI agents can collaborate to create sophistic
 ```
 🛡️ System crash = Automatic context recovery in <30 seconds
 🚀 Restart = Intelligent welcome with session continuation  
-🤝 Multi-AI = Claude analysis + Gemini web search + tool integration
+🤝 Triple-AI = Claude analysis + Gemini web search + Ollama native tools
 ⚡ Full automation = Zero-touch startup and recovery
+🛠️ Tool calling = Web search, calculations, file ops via Ollama
 ```
 
 ## 🚀 **QUICK START - SEE IT IN ACTION**
@@ -100,10 +101,32 @@ graph TD
 - **Memory snapshots** for complex session preservation
 
 ### **3. Multi-AI Collaboration Engine** 🤝
-- **Seamless Gemini CLI integration** for web access
+- **Seamless Google Gemini CLI integration** for web access
 - **Transparent model switching** based on capability needs
 - **AI-to-AI consultation workflows** for complex problems
 - **Fallback systems** when primary models are unavailable
+- **Quota-aware operations** with intelligent degradation
+
+#### Google Gemini Integration Details:
+- **Gemini 2.5 Pro** for complex analysis and research tasks
+- **Real-time internet search** capabilities through CLI
+- **GitHub repository analysis** and issue tracking
+- **Technical documentation generation** and review
+- **API quota management** with graceful fallbacks
+
+### **5. Ollama Native Tools Integration** 🛠️
+- **Native tool calling** using Ollama's official API capabilities
+- **Web search tools** via DuckDuckGo API (no API key required)
+- **Mathematical calculations** with safe expression evaluation
+- **File system operations** for development workflow automation
+- **Local processing** with complete privacy and no quotas
+- **Multiple model support** (Hermes3:8b, Llama3.1:8b)
+
+#### Ollama Models with Tool Support:
+- **hermes3:8b** (4.7GB) - Excellent tool calling and reasoning capabilities
+- **llama3.1:8b** (4.9GB) - Great general purpose with native tool support
+- **Storage location**: `G:\master_it\ollama` (keeps C: drive clean)
+- **Available tools**: Web search, calculator, file operations
 
 ### **4. Windows Ecosystem Integration** 🪟
 - **Registry-based startup automation** with Task Scheduler backup
@@ -131,6 +154,17 @@ Stop-Process -Name "Warp" -Force
 # → Returns real-time data: "NVIDIA at $173.50, slight decline"
 # → Claude analyzes and provides investment insights
 # → User gets comprehensive analysis combining both AI capabilities
+```
+
+### **Ollama Native Tools in Action:**
+```powershell
+# User asks: "What are the latest AI developments and calculate 15*23?"
+# → Claude routes to Ollama with tool support
+# → Ollama recognizes need for web search AND calculation
+# → Tool 1: Web search via DuckDuckGo API
+# → Tool 2: Mathematical calculation (15*23 = 345)
+# → Returns: "Latest AI trends include... Also, 15*23 equals 345."
+# → All processed locally with privacy and no API quotas
 ```
 
 ## 🎬 **VIDEO DEMONSTRATIONS**
@@ -172,13 +206,26 @@ cd warp-ai-enhancement-suite
 # 🚀 All systems operational!
 ```
 
-## 🎯 **FOR ANTHROPIC & WARP TEAMS**
+## 🎯 **FOR ANTHROPIC, GOOGLE GEMINI & WARP TEAMS**
 
 ### **Why This Matters:**
 1. **Proves AI Agent Collaboration Works** - Real-world demonstration of multi-model systems
 2. **Solves Actual User Pain Points** - Context loss and system reliability issues
 3. **Shows Integration Possibilities** - How different AI systems can work together
 4. **Demonstrates User Value** - Measurable improvements in productivity and reliability
+
+### **For Google Gemini Team:**
+This project showcases **Google Gemini's capabilities** in a unique AI-to-AI collaboration context:
+- **Real-time web search integration** with terminal environments
+- **Cross-model intelligence augmentation** (Gemini + Claude)
+- **Practical quota management** with graceful degradation
+- **Enterprise-ready API usage patterns** in development workflows
+
+**Live Demonstration Status:**
+- ✅ **Gemini 2.5 Pro integration** successfully implemented
+- ✅ **Internet search capabilities** fully operational
+- ⚠️ **Current API status**: Daily quota reached (resets at midnight UTC)
+- 🔄 **Fallback systems**: GitHub CLI and curl alternatives active
 
 ### **Next Steps - Partnership Opportunities:**
 - **Warp Integration**: Official MCP server integration for our enhancement suite
@@ -260,6 +307,8 @@ This project demonstrates the potential of:
 **Repository:** [warp-ai-enhancement-suite](https://github.com/hlsitechio/warp-ai-enhancement-suite)
 
 **For Anthropic Team:** This project showcases Claude's ability to collaborate with other AI systems and create sophisticated development tools. We'd love to discuss multi-model orchestration research opportunities.
+
+**For Google Gemini Team:** This demonstration highlights Gemini's power in cross-model AI collaboration and real-time web integration. We're interested in discussing enterprise API partnerships and advanced quota management solutions.
 
 **For Warp Team:** Our enhancement suite addresses real user needs and demonstrates integration possibilities. We're interested in official MCP server collaboration and community contribution opportunities.
 
