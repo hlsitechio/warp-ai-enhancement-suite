@@ -26,11 +26,13 @@ $global:WarpFirstRun = -not (Get-Variable -Name "WarpEnhancementLoaded" -Scope G
 
 # 📝 CONVERSATION LOGGER
 function Initialize-ConversationLogger {
-    $global:ConversationLogPath = "G:\master_it\log\Claude_Conversation_Log.txt"
-    $global:BackupLogPath = "G:\master_it\log\Claude_Conversation_Backup_$(Get-Date -Format 'yyyyMMdd').txt"
+    # Use configurable log directory - defaults to Documents if G: drive not available
+    $logDir = if (Test-Path "G:\master_it\log") { "G:\master_it\log" } else { "$env:USERPROFILE\Documents\WarpAI\logs" }
+    $global:ConversationLogPath = "$logDir\Claude_Conversation_Log.txt"
+    $global:BackupLogPath = "$logDir\Claude_Conversation_Backup_$(Get-Date -Format 'yyyyMMdd').txt"
     
-    if (-not (Test-Path "G:\master_it\log")) {
-        New-Item -ItemType Directory -Path "G:\master_it\log" -Force | Out-Null
+    if (-not (Test-Path $logDir)) {
+        New-Item -ItemType Directory -Path $logDir -Force | Out-Null
     }
     
     if ($global:WarpFirstRun) {
@@ -59,7 +61,7 @@ function Invoke-IntelligentSearch {
     Write-ConversationLog "TOOL" "Web search requested: $Query"
     
     try {
-        $result = & "C:\Users\hlaro\AppData\Roaming\npm\gemini.ps1" -p "Search the web for: $Query. Provide a concise summary."
+        $result = & "gemini" -p "Search the web for: $Query. Provide a concise summary."
         return $result | Where-Object { $_ -notmatch "Loaded cached credentials" -and $_ -notmatch "^\s*$" }
     } catch {
         return "Web search temporarily unavailable. Error: $($_.Exception.Message)"
@@ -135,8 +137,9 @@ function Get-IntelligentContext {
         Statistics = @{}
     }
     
-    # Analyze recent log files
-    $logFiles = Get-ChildItem "G:\master_it\log" -Filter "*.log" | Sort-Object LastWriteTime -Descending | Select-Object -First 5
+    # Analyze recent log files from configured log directory
+    $logDir = if (Test-Path "G:\master_it\log") { "G:\master_it\log" } else { "$env:USERPROFILE\Documents\WarpAI\logs" }
+    $logFiles = Get-ChildItem $logDir -Filter "*.log" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 5
     
     if ($logFiles) {
         $context.LastActivity = $logFiles[0].LastWriteTime
@@ -196,7 +199,7 @@ function Show-IntelligentWelcome {
     }
     
     Write-Host ""
-    Write-Host "👋 Hey welcome back Hubert! How's it going this $timeOfDay?" -ForegroundColor Cyan
+    Write-Host "👋 Welcome back! How's it going this $timeOfDay?" -ForegroundColor Cyan
     Write-Host "════════════════════════════════════════════════════════════" -ForegroundColor DarkGray
     
     # Get intelligent context
