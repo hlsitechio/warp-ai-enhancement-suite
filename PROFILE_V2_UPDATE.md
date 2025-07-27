@@ -17,7 +17,7 @@
 When the user loaded the new profile, this happened:
 
 ```
-👋 Hey welcome back Hubert! How's it going this afternoon?
+👋 Welcome back! How's it going this afternoon?
 ════════════════════════════════════════════════════════════
 🎯 Based on recent logs and memory, we were working on:
 
