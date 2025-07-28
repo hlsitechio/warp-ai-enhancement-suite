@@ -76,6 +76,14 @@ Here's what happens when you open a new Warp session with our enhancement suite:
 
 ## 🛠️ Core Components
 
+### 🤖 Claude Desktop Integration (NEW!)
+Breakthrough AI-to-AI communication system enabling direct coordination between Warp AI Claude and Claude Desktop:
+- **Direct AI Communication**: Real-time message exchange between AI systems
+- **MCP Integration**: Uses Claude Desktop's Powershell-Tool for system interaction  
+- **Secret Coordination**: Multi-phase operations with operational security
+- **Program Execution**: AI systems can coordinate to launch programs
+- **Zero Chat Pollution**: All communication via log files, no chat interference
+
 ### 🧠 Intelligent Session Management
 - **Context Recovery**: Analyzes logs and memory to reconstruct work state
 - **Project Detection**: Automatically identifies active projects and next steps
@@ -118,11 +126,15 @@ graph TD
     B --> D[Gemini CLI Tools]
     B --> E[Ollama Vision]
     B --> F[Context Analysis]
+    B --> L[Claude Desktop Integration]
     F --> G[Log Files]
     F --> H[MCP Memory]
     C --> I[Natural Language Processing]
     D --> J[Web Search & Tools]
     E --> K[Image Analysis]
+    L --> M[Claude Desktop MCP]
+    L --> N[AI-to-AI Communication]
+    L --> O[Secret Coordination]
 ```
 
 ## 📈 Success Metrics
